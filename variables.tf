@@ -40,14 +40,32 @@ variable "notebook_lifecycle_configuration_name" {
   default     = "mlops-notebook-lifecycle-config"
 }
 
+variable "create_iam_role" {
+  description = "Flag to create IAM role or not"
+  type        = bool
+  default     = false
+}
+
+variable "iam_role_name" {
+  description = "(Optional) AWS IAM role name"
+  type        = string
+  default     = null
+}
+
+variable "aws_managed_policies_arn" {
+  description = "(Optional) AWS managed policies arn for IAM role"
+  type        = list(string)
+  default     = []
+}
+
 variable "sagemaker_iam_role_arn" {
-  description = "AWS IAM role arn"
+  description = "(Optional) AWS IAM role arn, this required if create_iam_role is false."
   type        = string
   default     = null
 }
 
 variable "repository_name" {
-  description = "(Required) The name of the Code Repository (must be unique)."
+  description = "(Optional) The name of the Code Repository (must be unique)."
   type        = string
   default     = null
 }

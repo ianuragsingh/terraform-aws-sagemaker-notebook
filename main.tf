@@ -7,7 +7,7 @@ resource "aws_sagemaker_notebook_instance" "this" {
   security_groups        = var.security_groups
   kms_key_id             = var.kms_key_id
   direct_internet_access = var.direct_internet_access
-  role_arn               = var.sagemaker_iam_role_arn
+  role_arn               = create_iam_role ? aws_iam_role.this.arn : var.sagemaker_iam_role_arn
 
   lifecycle_config_name   = aws_sagemaker_notebook_instance_lifecycle_configuration.this.name
   default_code_repository = var.repository_name != null ? aws_sagemaker_code_repository.this[0].code_repository_name : null

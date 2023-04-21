@@ -1,2 +1,3 @@
 # terraform-sagemaker-notebook
-Create Sagemaker Notebook 
+Complete module to create Sagemaker Notebook 
+
