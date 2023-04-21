@@ -1,7 +1,7 @@
 variable "name" {
   description = "Name of notebook"
   type        = string
-  default     = "mlops-sagemaker-notebook"
+  default     = "sample-sagemaker-notebook"
 }
 
 variable "instance_type" {
@@ -31,7 +31,7 @@ variable "subnet_id" {
 variable "security_groups" {
   description = "(Optional) The associated security groups."
   type        = list(string)
-  default     = []
+  default     = null
 }
 
 variable "notebook_lifecycle_configuration_name" {
